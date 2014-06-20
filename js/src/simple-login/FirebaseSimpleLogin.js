@@ -68,7 +68,13 @@ FirebaseSimpleLogin = function(ref, cb, context, apiHost) {
       fb.simplelogin.util.validation.validateArgCount(method, 2, 2, arguments.length);
       fb.simplelogin.util.validation.validateCallback(method, 2, cb, false);
       return client_.sendPasswordResetEmail(email, cb);
-    }
+    },
+
+		'attemptAuth': function(token, user, saveSession, resolveCb, rejectCb){
+		var method = "FirebaseSimpleLogin.attemptAuth";
+		fb.simplelogin.util.validation.validateArgCount(method, 3, 5, arguments.length);
+		return client_.attemptAuth(token, user, saveSession, resolveCb, rejectCb);
+		}
   };
 };
 
